@@ -1,19 +1,17 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,regular,italic,600,600italic,700,700italic,800,800italic);
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
-    font-family: 'Open Sans',sans-serif;
-}
+
 html{
     min-height: 100%;
 }
 body{
+    background: linear-gradient(to bottom right,black, purple);
+    color: white;
+}
+#time{
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom right,black, purple);
-    color: white;
+   
 }
 #clock{
     position: relative;

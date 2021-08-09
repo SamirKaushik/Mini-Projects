@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <style>
+      body {
+        background-color: #444444;
+        font-family: sans-serif;
+      }
+      .slider {
+        max-width: 700px;
+        border: 10px solid skyblue;
+        margin: 80px auto;
+        position: relative;
+        overflow: hidden;
+      }
+      .slider .left-slide {
+        left: 30px;
+      }
+      .slider .right-slide {
+        right: 30px;
+      }
+      .slider .left-slide:hover,
+      .slider .right-slide:hover {
+        background-color: skyblue;
+        box-shadow: 0 0 10px black;
+      }
+
+      .slider .left-slide,
+      .slider .right-slide {
+        position: absolute;
+        height: 40px;
+        width: 40px;
+        background-color: #444444;
+        border-radius: 50%;
+        color: #ffffff;
+        font-size: 20px;
+        cursor: pointer;
+        top: 50%;
+        margin-top: -20px;
+        text-align: center;
+        line-height: 40px;
+        transition: all 0.5s ease;
+      }
+
+      .slider .slider-items .item img {
+        max-width: 100%;
+        display: block;
+        animation: zoom 1s ease;
+      }
+      @keyframes zoom {
+          0%{
+              transform: scale(2);
+              opacity: 0;
+          }
+          100%{
+              transform: scale(1);
+              opacity: 1;
+          }
+          
+      }
+      .slider .slider-items .item {
+        display: none;
+        position: relative;
+      }
+      .slider .slider-items .item.active {
+        display: block !important;
+      }
+      .slider .slider-items .item .caption {
+        position: absolute;
+        width: 100%;
+        height: 60px;
+        bottom: 0px;
+        left: 0px;
+        background-color: rgba(0, 0, 0, 0.5);
+        line-height: 60px;
+        text-align: center;
+        color: #ffffff;
+        font-size: 30px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider">
+      <div class="slider-items">
+        <div class="item active">
+          <img
+            src="https://wallpapercave.com/wp/wp2646303.jpg"
+            alt=""
+          />
+          <div class="caption">Slide 1</div>
+        </div>
+        <div class="item">
+          <img
+            src="https://cdn.pixabay.com/photo/2018/01/14/23/12/nature-3082832__480.jpg"
+            alt=""
+          />
+          <div class="caption">Slide 2</div>
+        </div>
+        <div class="item">
+          <img
+            src="https://c4.wallpaperflare.com/wallpaper/500/442/354/outrun-vaporwave-hd-wallpaper-preview.jpg"
+            alt=""
+          />
+          <div class="caption">Slide 3</div>
+        </div>
+      </div>
+      <div class="left-slide">&lt;</div>
+      <div class="right-slide">&gt;</div>
+    </div>
+    <script>
+      var slides = document.querySelector(".slider-items").children;
+      var prevSlide = document.querySelector(".left-slide");
+      var nextSlide = document.querySelector(".right-slide");
+      var index = 0;
+      var totalSlides = slides.length;
+      prevSlide.onclick = function () {
+        next("prev");
+      };
+      nextSlide.onclick = function () {
+        next("next");
+      };
+      function next(direction) {
+        if (direction == "next") {
+          index++;
+          if (index == totalSlides) {
+            index = 0;
+          }
+        } else {
+          index--;
+          if (index == -1) {
+            index = totalSlides - 1;
+          }
+        }
+        for (i = 0; i < totalSlides; i++) {
+          slides[i].classList.remove("active");
+        }
+        slides[index].classList.add("active");
+      }
+    </script>
+  </body>
+</html>

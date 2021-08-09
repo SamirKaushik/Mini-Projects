@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transition example</title>
+    <style>
+      body {
+        margin: 0 !important;
+        background-color: white;
+        height: 609px;
+        width: 1240px;
+      }
+      .box {
+        height: 80px;
+        width: 80px;
+        text-align: center;
+        background-color: skyblue;
+        line-height: 40px;
+        transition: transform 2s, background-color 2s, margin 2s;
+        position: relative;
+        color: black;
+        font-family: sans-serif;
+      }
+      .box:focus {
+        background-color: red;
+        transform: rotate(720deg);
+        margin: 284.5px 580px;
+      }
+    </style>
+  </head>
+  <body>
+    <p
+      style="
+        color: black;
+        font-family: 'Courier New', Courier, monospace;
+        margin-top: 0;
+        font-weight: 900;
+      "
+    >
+      CLICK ANYWHERE ELSE TO COME TO NORMAL
+    </p>
+    <div class="hover"><div class="box" tabindex="4">CLICK ON ME!</div></div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Maps</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        outline: 0;
+      }
+      body {
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkRQaJLeJ5j3DbualtiIGCgJeKVkQg8Sfq-w&usqp=CAU);
+      }
+      h1 {
+        text-align: center;
+        font-family: cursive;
+        margin-bottom: 25px;
+        padding: 10px;
+        background-color: cornflowerblue;
+        color: white;
+        box-shadow: 0 2px 10px black;
+        text-shadow: 2px 2px 0px black;
+      }
+      .map{
+          padding: 25px;
+          background-color: cornflowerblue;
+          width: max-content;
+          position: absolute;
+          transform: translate(-50%);
+          left: 50%;
+          box-shadow: 0 3px 10px black;
+      }
+      iframe{
+          box-shadow: 1px 1px 0px black, -1px -1px 0px black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Google Maps</h1>
+    <div class="map">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13960.30076897792!2d76.98677372000546!3d28.985142786584127!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390dbabc936c3899%3A0x9d7bbb06e640c686!2sSector%2023%2C%20Sonipat%2C%20Haryana%20131001!5e0!3m2!1sen!2sin!4v1622787219808!5m2!1sen!2sin"
+        width="600"
+        height="445"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+  </body>
+</html>

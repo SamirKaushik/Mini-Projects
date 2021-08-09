@@ -1,0 +1,58 @@
+div.content{
+    position: absolute;
+    left:50%;
+    transform:translate(-50%);
+    box-shadow: 0 5px 10px grey;
+    border-radius: 20%;
+    padding:10px;
+}
+#ground{
+    animation:ground-color 5s infinite alternate;
+}
+@keyframes ground-color{
+    0%{fill:violet;}
+    17%{fill:indigo;}
+    32%{fill:blue;}
+    47%{fill:green;}
+    62%{fill:yellow;}
+    77%{fill:orange;}
+    100%{fill:red;}
+}
+#shoulder{
+    animation:shoulder-rotate 1s infinite alternate;
+    transform-origin: top left;
+    transform-box: fill-box;
+    animation-timing-function: ease-in-out;
+
+}
+@keyframes shoulder-rotate{
+    100%{
+        transform: rotate(7deg);
+       
+    }
+}
+#arm{
+    animation:arm-rotate 1s ease-in-out infinite alternate,arm-translate 1s ease-in-out infinite alternate;
+    transform-origin: bottom right;
+    transform-box: fill-box;
+}
+@keyframes arm-rotate{
+    100%{
+        transform: rotate(-6deg);
+    }
+}
+@keyframes arm-translate {
+    to{
+        transform: translate(-25px);
+    }
+    
+}
+#car{
+    animation:car 1s infinite alternate;
+    animation-timing-function: ease-in-out;
+}
+@keyframes car {
+    to{
+        transform: translate(-30px);
+    }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TO-DO-LIST</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <style>
+      html {
+        min-height: 100%;
+      }
+      body {
+        background: linear-gradient(
+          to bottom right,
+          royalblue,
+          cornflowerblue,
+          skyblue
+        );
+        margin: 0;
+        font-family: sans-serif;
+      }
+      .container {
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+      #add_tasks,
+      #tasks {
+        background-color: #fff;
+        padding: 24px;
+        border-radius: 5px;
+        width: 340px;
+        box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.397);
+      }
+      #tasks {
+        margin-top: 40px;
+      }
+      #add_tasks input {
+        width: 70%;
+        height: 35px;
+        border-radius: 5px;
+        border: gray 2px solid;
+        padding: 0 0 0 10px;
+        font-size: 15px;
+        line-height: 35px;
+        outline: none;
+        font-weight: 500;
+      }
+      #add,
+      .remove {
+        position: relative;
+        float: right;
+        height: 35px;
+        width: 50px;
+        color: #fff;
+        background-color: royalblue;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+      }
+      .task-value {
+        width: 70% !important;
+        font-size: 17px;
+        font-weight: 500;
+        display: inline-flex;
+        height: 35px;
+        align-items: center;
+        color: rgb(95, 95, 95);
+      }
+      .task{ margin-bottom: 20px;
+        border-bottom: gray 2px solid;
+        padding:3px;
+    }
+    .linethrough{
+        text-decoration: line-through;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div id="add_tasks">
+        <input id="textfield" type="text" placeholder="Task to be done.." />
+        <button id="add">Add</button>
+      </div>
+      <div id="tasks"></div>
+    </div>
+    <script>
+      document.querySelector("#add").onclick = function () {
+        if (document.querySelector("#textfield").value.length == 0) {
+          alert("Enter a task!");
+        } else 
+          document.querySelector("#tasks").innerHTML += `
+    <div class="task">
+    
+<div class="task-value">${document.querySelector("#textfield").value}</div>
+    <button class="remove"><i class="material-icons">delete</i></button>
+    
+    </div>
+    `;
+    var all_tasks=document.querySelectorAll(".remove");
+      for(var i=0;i<all_tasks.length;i++){
+          all_tasks[i].onclick=function(){
+              this.parentNode.remove();
+          }
+      }
+
+     var tasks=document.querySelectorAll(".task");
+     for(var i=0;i<tasks.length;i++){
+        tasks[i].onclick= function(){
+        this.classList.toggle("linethrough");}
+     }
+        document.querySelector("#textfield").value="";
+
+      };
+     
+    </script>
+  </body>
+</html>

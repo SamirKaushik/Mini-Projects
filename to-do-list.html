@@ -13,6 +13,13 @@
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 
     <style>
+      @media only screen and (max-width:350px){
+        #add_tasks,
+      #tasks{
+        width: 99%!important;
+      }
+        
+      }
       html {
         min-height: 100%;
       }
@@ -103,12 +110,12 @@
       </div>
   </nav>
   <br>
-    <div class="container">
-      <div id="add_tasks">
+    <div class="container" style="padding: 0px;">
+      <div id="add_tasks" style="margin: auto;">
         <input id="textfield" type="text" placeholder="Task to be done.." />
         <button id="add">Add</button>
       </div>
-      <div id="tasks"></div>
+      <div id="tasks" style="margin:40px auto;"></div>
     </div>
     <script>
       document.querySelector("#add").onclick = function () {

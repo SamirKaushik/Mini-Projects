@@ -15,7 +15,6 @@
     <!-- now draw on canvas using JavaScript -->
     <!-- all drawing on the html canvas must be done with JavaScript -->
     <canvas id="canvas" width="400" height="300" style="border: 2px solid red;">
-
     </canvas>
     <script>
         // step 1 : find the canvas Element
@@ -29,6 +28,13 @@
 
         // The fillRect(x,y,width,height) method draws a rectangle, filled with the fill style
         ctx.fillRect(10,10,100,100);
+        // drawing a line
+        ctx.moveTo(10,10);
+        ctx.lineTo(110,110);
+        ctx.stroke();
+        ctx.moveTo(110,10);
+        ctx.lineTo(10,110);
+        ctx.stroke();
     </script>
 </body>
 

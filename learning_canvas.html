@@ -12,10 +12,24 @@
     <!-- <canvas> element must have an id(for referring to JavaScript) -->
     <!-- width and height attributes are necessary -->
     <!-- it can be styled like other elements -->
+    <!-- now draw on canvas using JavaScript -->
+    <!-- all drawing on the html canvas must be done with JavaScript -->
     <canvas id="canvas" width="400" height="300" style="border: 2px solid red;">
 
     </canvas>
+    <script>
+        // step 1 : find the canvas Element
+        var canvas = document.getElementById("canvas");
+        // step 2: create a drawing Object
+        // getContext() is used for that
+        var ctx = canvas.getContext("2d");
+        // step 3: draw on canvas
+        ctx.fillStyle="skyblue";
+        // The fillStyle property can be a CSS color, a gradient, or a pattern. The default fillStyle is black.
 
+        // The fillRect(x,y,width,height) method draws a rectangle, filled with the fill style
+        ctx.fillRect(10,10,100,100);
+    </script>
 </body>
 
 </html>

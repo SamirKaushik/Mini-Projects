@@ -35,6 +35,17 @@
         ctx.moveTo(110,10);
         ctx.lineTo(10,110);
         ctx.stroke();
+        // drawing a circle
+        ctx.beginPath();
+        // arc(x,y,radius,start-angle,end-angle);
+        ctx.arc(190,60,50,0,2*Math.PI);
+        ctx.stroke();
+        // for making centre of the circle
+        ctx.beginPath();
+        ctx.arc(190,60,1,0,2*Math.PI);
+        ctx.stroke();
+        
+
     </script>
 </body>
 

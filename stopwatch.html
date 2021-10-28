@@ -46,13 +46,14 @@
         }
 
         .b {
-            border: 2px white solid;
+            border: 1px white solid;
             text-align: center;
             padding: 10px;
             margin: 10px;
             font-weight: 600;
             cursor: pointer;
             width: 80px;
+            transition: border-radius 0.5s;
         }
 
         #buttons {
@@ -64,12 +65,15 @@
         .b:hover {
             background-color: white;
             color: black;
+            border-radius: 10px;
+            animation: start_button 0.5s forwards;
         }
 
         #reset:hover {
-            background-color: red;
+            background-color: royalblue;
+            animation: reset_button 0.5s forwards;
             color: white;
-            border-color: red;
+            border-color: royalblue;
         }
     </style>
 </head>

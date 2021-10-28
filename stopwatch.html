@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stopwatch</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <style>
+        @media only screen and (max-width:440px) {
+            div.a {
+                font-size: 40px;
+                padding: 10px;
+            }
+        }
+
+        body {
+            background-color: black;
+        }
+
+        #stopwatch {
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+
+        #time {
+            display: flex;
+            border: 2px white solid;
+            width: fit-content;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        #result {
+            margin: auto;
+            padding: 10px;
+        }
+
+        .a {
+            padding: 20px;
+            font-size: 50px;
+        }
+
+        .b {
+            border: 2px white solid;
+            text-align: center;
+            padding: 10px;
+            margin: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 80px;
+        }
+
+        #buttons {
+            font-size: 15px;
+            display: flex;
+            margin: auto;
+        }
+
+        .b:hover {
+            background-color: white;
+            color: black;
+        }
+
+        #reset:hover {
+            background-color: red;
+            color: white;
+            border-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="../index.html">HOME</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://samirkaushik.netlify.app">My Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://samirkaushik.netlify.app/projects.HTML" tabindex="-1"
+                            aria-disabled="true">My Projects</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <br>
+    <br>
+    <div id="stopwatch">
+        <div id="time">
+            <div id="minute" class="a">00</div>
+            <div class="a">:</div>
+            <div id="second" class="a">00</div>
+            <div class="a">:</div>
+            <div id="centi" class="a">00</div>
+        </div>
+        <div id="buttons">
+            <div id="start" class="b">START</div>
+            <div id="reset" class="b">RESET</div>
+        </div>
+        <div id="result"></div>
+    </div>
+    <script>
+        var reset = document.getElementById("reset");
+        var second = document.getElementById("second");
+        var minute = document.getElementById("minute");
+        var centi = document.getElementById("centi");
+        var result = document.getElementById("result");
+        var start = document.getElementById("start");
+        var stop_ = 0;
+        var centi_value = 0;
+        var second_value = 0;
+        var minute_value = 0;
+        start.onclick = () => {
+            if (stop_ == 0) {
+                result.innerText = "";
+                stop_ = 1;
+                start.innerText = "STOP";
+                centi_count = setInterval(() => {
+                    if (centi_value < 99)
+                        centi_value++;
+                    else {
+                        centi_value = 0
+                        if (second_value < 59)
+                            second_value++;
+                        else {
+                            second_value = 0;
+                            if (minute_value < 59)
+                                minute_value++;
+                            else minute_value = 0;
+
+                            if (minute_value < 10)
+                                minute.innerText = "0" + minute_value;
+                            else
+                                minute.innerText = minute_value;
+                        }
+
+                        if (second_value < 10)
+                            second.innerText = "0" + second_value;
+                        else
+                            second.innerText = second_value;
+                    };
+
+                    if (centi_value < 10)
+                        centi.innerText = "0" + centi_value;
+                    else
+                        centi.innerText = centi_value;
+                }, 10);
+            }
+
+
+            else {
+                stop_ = 0;
+                start.innerText = "START";
+                clearInterval(centi_count);
+                result.innerText = minute_value + " minutes, " + second_value + " seconds and " + centi_value + " centiseconds have passed.";
+
+            }
+
+        }
+        reset.onclick = () => {
+            result.innerText = "";
+            second.innerText = "00";
+            minute.innerText = "00";
+            centi.innerText = "00";
+            stop_ = 0;
+            start.innerText = "START";
+            clearInterval(centi_count);
+            centi_value = 0;
+            second_value = 0;
+            minute_value = 0;
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

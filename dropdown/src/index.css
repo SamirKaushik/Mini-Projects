@@ -41,3 +41,6 @@
     border: none;
     padding: 0px 6px;
 }
+.hoverable{
+    cursor: pointer;
+}

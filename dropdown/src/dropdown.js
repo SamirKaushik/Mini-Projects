@@ -3,6 +3,7 @@ const Dropdown = () => {
     const colors = ["cyan", "green", "grey", "steelblue"];
     const [options, setOptions] = useState(colors);
     const [addedOptions, setAddedOptions] = useState([]);
+    const [toggle,setToggle]=useState(0);
     const handleOptions = (colour) => {
         const newOptions = options.filter((option) => option !== colour)
         setOptions(newOptions);
@@ -40,12 +41,14 @@ const Dropdown = () => {
                     <button id='clear' className="button hoverable" onClick={handleClear}>
                         {clearSVG}
                     </button>
-                    <button id='toggle' className="button hoverable">
+                    <button id='toggle' className="button hoverable" onClick={()=>{
+                        setToggle(~toggle);
+                    }}>
                         {toggleSVG}
                     </button>
                 </div>
             </div>
-            <div id='options'>
+            <div id='options' style={toggle===0?{display:'none'}:{display:'block'}}>
                 {options.map((colour) => {
                     return (<div className="hoverable" style={{ color: colour, padding: "10px 10px" }} onClick={() => handleOptions(colour)}>
                         {colour}

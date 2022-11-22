@@ -50,7 +50,7 @@ const Dropdown = () => {
             </div>
             <div id='options' style={toggle===0?{display:'none'}:{display:'block'}}>
                 {options.map((colour) => {
-                    return (<div className="hoverable" style={{ color: colour, padding: "10px 10px" }} onClick={() => handleOptions(colour)}>
+                    return (<div id={colour} className="hoverable" style={{ color: colour, padding: "10px 10px"}} onClick={() => handleOptions(colour)}>
                         {colour}
                     </div>);
                 })}

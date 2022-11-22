@@ -1,6 +1,6 @@
 import { useState } from "react";
 const Dropdown = () => {
-    const colors = ["cyan", "green", "grey", "steelblue"];
+    const colors = ["cyan", "green", "grey", "steelblue","blue"];
     const [options, setOptions] = useState(colors);
     const [addedOptions, setAddedOptions] = useState([]);
     const [toggle,setToggle]=useState(0);
@@ -30,9 +30,9 @@ const Dropdown = () => {
     return (
         <div id='dropdown'>
             <div id='input'>
-                <div id="added_options" style={{ display: "flex" }}>
+                <div id="added_options" style={{ display: "flex"}}>
                     {addedOptions.map((colour) => {
-                        return (<div className="hoverable" style={{ color: colour, borderRadius: "2px", marginLeft: "5px", padding: "2px 5px", backgroundColor: "light" + colour }} onClick={() => handleAddedOptions(colour)}>
+                        return (<div className="hoverable" style={{ color: colour, borderRadius: "2px", marginLeft: "5px", padding: "2px 5px", backgroundColor: "light" + colour, display:"flex"}} onClick={() => handleAddedOptions(colour)}>
                             {colour + " "} {removeAddedOptionSVG}
                         </div>);
                     })}

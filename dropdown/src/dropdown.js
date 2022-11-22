@@ -1,6 +1,6 @@
 import { useState } from "react";
 const Dropdown = () => {
-    const colors = ["cyan", "green", "grey", "steelblue","blue"];
+    const colors = ["green", "grey", "steelblue","blue","cyan"];
     const [options, setOptions] = useState(colors);
     const [addedOptions, setAddedOptions] = useState([]);
     const [toggle,setToggle]=useState(0);
